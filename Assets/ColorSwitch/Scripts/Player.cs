@@ -7,7 +7,6 @@ namespace ColorSwitch.Scripts
     public class Player : MonoBehaviour
     {
         [SerializeField] private float jumpForce = 10f;
-        
         [SerializeField] private InputHandler inputHandler;
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private SpriteRenderer bodyRenderer;

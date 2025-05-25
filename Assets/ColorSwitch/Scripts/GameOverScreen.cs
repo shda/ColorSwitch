@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace BlockBlast.Scripts.Game
+namespace ColorSwitch.Scripts
 {
     public class GameOverScreen : MonoBehaviour
     {
