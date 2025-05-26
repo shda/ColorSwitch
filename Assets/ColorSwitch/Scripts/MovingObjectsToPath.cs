@@ -5,6 +5,12 @@ using UnityEngine;
 
 namespace ColorSwitch.Scripts
 {
+    public abstract class PathToLine : MonoBehaviour
+    {
+        public abstract Vector3 GetPointToPath(float value);
+        public abstract void RefreshPath();
+    }
+    
     [ExecuteInEditMode]
     public class MovingObjectsToPath : MonoBehaviour
     {
