@@ -5,13 +5,13 @@ namespace ColorSwitch.Scripts
 {
     public class MovingObject : MonoBehaviour
     {
-        [SerializeField] private ColorsStorage colorsStorage;
+        [SerializeField] private SpriteCollectionByColor spriteCollectionByColor;
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private ObstacleColor obstacleColor;
         
         public void SetColor(ColorInGame colorInGame)
         {
-            spriteRenderer.color = colorsStorage.GetColor(colorInGame);
+            spriteRenderer.sprite = spriteCollectionByColor.GetSpriteByColor(colorInGame);
             obstacleColor.SetObstacleColor(colorInGame);
         }
     }

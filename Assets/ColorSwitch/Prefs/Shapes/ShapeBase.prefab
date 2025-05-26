@@ -46,6 +46,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizePoint: 0.3
   color: {r: 0.03984928, g: 0, b: 1, a: 1}
+--- !u!1 &1550059470230977183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5483548850461942385}
+  - component: {fileID: 6817912117718553532}
+  m_Layer: 0
+  m_Name: StarPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5483548850461942385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550059470230977183}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5516263367254422180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6817912117718553532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550059470230977183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5651695cd1bf692489036b24b756bbcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizePoint: 0.3
+  color: {r: 0, g: 1, b: 0.91298866, a: 1}
 --- !u!1 &1634324919031431794
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,6 +124,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5749498426161236062}
+  - {fileID: 5483548850461942385}
   - {fileID: 7709080760250417890}
   - {fileID: 6787915827506159754}
   m_Father: {fileID: 0}
@@ -94,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e9e75521e14977bee4a4ff29e16507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointSetStar: {fileID: 5749498426161236062}
+  pointSetStar: {fileID: 5483548850461942385}
   lowerLimit: {fileID: 6787915827506159754}
   upperLimit: {fileID: 7709080760250417890}
 --- !u!114 &5732045336028872090

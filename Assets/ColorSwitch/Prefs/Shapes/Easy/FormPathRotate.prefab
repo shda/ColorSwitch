@@ -151,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 5824822037018400966}
   obstacleColor: {fileID: 5313950099719004143}
 --- !u!1 &344328645766817367
@@ -305,7 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 400979441084780758}
   obstacleColor: {fileID: 6876281251529920262}
 --- !u!1 &506355336896107672
@@ -459,7 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 3628033861665565524}
   obstacleColor: {fileID: 7759528008028456758}
 --- !u!1 &510608423041364986
@@ -613,7 +616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 6465799724317423225}
   obstacleColor: {fileID: 2219161292103522094}
 --- !u!1 &635703131371275827
@@ -767,7 +771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 2889440936289504406}
   obstacleColor: {fileID: 5476450151185355215}
 --- !u!1 &756532046554749839
@@ -921,7 +926,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 8249009802859296598}
   obstacleColor: {fileID: 7286937123191780161}
 --- !u!1 &826835007354073666
@@ -1075,7 +1081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 6509287568219270116}
   obstacleColor: {fileID: 2109556736257761963}
 --- !u!1 &1216062310811027651
@@ -1229,7 +1236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 2107070516678944204}
   obstacleColor: {fileID: 1786990761714277105}
 --- !u!1 &1278096625983214064
@@ -1383,7 +1391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 4157128865399342394}
   obstacleColor: {fileID: 7921039465385949375}
 --- !u!1 &2034717846183030604
@@ -1537,7 +1546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 5359680396854736803}
   obstacleColor: {fileID: 36299140006334972}
 --- !u!1 &2082700789835054599
@@ -1691,7 +1701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 7280742750277272916}
   obstacleColor: {fileID: 6612454507823692766}
 --- !u!1 &2109558991459576256
@@ -1845,7 +1856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 8860253751327847584}
   obstacleColor: {fileID: 677059848962277664}
 --- !u!1 &2267419130958246553
@@ -1999,7 +2011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 142249841767694822}
   obstacleColor: {fileID: 8148636664992648810}
 --- !u!1 &2541500753853598820
@@ -2153,7 +2166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 8407653450772490585}
   obstacleColor: {fileID: 4806067252109203165}
 --- !u!1 &3098771139340904738
@@ -2307,7 +2321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 6803075831208886074}
   obstacleColor: {fileID: 407330298687420126}
 --- !u!1 &3378695937135960567
@@ -2461,7 +2476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 3387865668498674990}
   obstacleColor: {fileID: 2715726380995227900}
 --- !u!1 &3857945567913586545
@@ -2615,7 +2631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 6240631542438933335}
   obstacleColor: {fileID: 1642104282841892256}
 --- !u!1 &4187909674661962047
@@ -2769,7 +2786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 1399026550031310967}
   obstacleColor: {fileID: 7210720041130535937}
 --- !u!1 &4801902948533518295
@@ -2923,7 +2941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 6028205357581705840}
   obstacleColor: {fileID: 856967995259514103}
 --- !u!1 &5977195487722540431
@@ -3139,7 +3158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 2771233395036442168}
   obstacleColor: {fileID: 999273331132041025}
 --- !u!1 &6450110636401353553
@@ -3293,7 +3313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 871042153770666881}
   obstacleColor: {fileID: 1559376956455255138}
 --- !u!1 &6583239146538978547
@@ -3478,7 +3499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 2238265571555372070}
   obstacleColor: {fileID: 8766728228055877039}
 --- !u!1 &6941955810609629778
@@ -3632,7 +3654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 871542672111683258}
   obstacleColor: {fileID: 5411427549316949344}
 --- !u!1 &7254046690262462055
@@ -3817,7 +3840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 5676641601526415286}
   obstacleColor: {fileID: 1390436344521825709}
 --- !u!1 &7977054412347793201
@@ -4025,7 +4049,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 2239809528290436315}
   obstacleColor: {fileID: 8087009203555404134}
 --- !u!1 &8407976328787750332
@@ -4179,7 +4204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 8548327241421649328}
   obstacleColor: {fileID: 2104224273776661559}
 --- !u!1 &8552068753591422743
@@ -4448,7 +4474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 1680635627793045236}
   obstacleColor: {fileID: 1976874224795877069}
 --- !u!1 &8685223543392145593
@@ -4602,7 +4629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites: []
   spriteRenderer: {fileID: 5351425842304024282}
   obstacleColor: {fileID: 957774278995712892}
 --- !u!1 &8878985385826985782
@@ -4652,7 +4680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
-  countItems: 28
+  countItems: 10
   movingSpeed: 0.2
   startOffset: 0
   path: {fileID: 2455059179452188276}

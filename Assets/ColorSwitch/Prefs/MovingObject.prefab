@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -151,6 +151,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cf0997ed646e2bdfd7a40787cfb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorsStorage: {fileID: 11400000, guid: 977b8b0c291b71a4c84d5bd62be19239, type: 2}
+  spriteCollectionByColor:
+    sprites:
+    - sprite: {fileID: 21300000, guid: f84d6172fcbb13a489923cfd95189477, type: 3}
+      color: 1
+    - sprite: {fileID: 21300000, guid: b7ec0dff2e9c5e34897d5de99f4db0b5, type: 3}
+      color: 3
+    - sprite: {fileID: 21300000, guid: 6d1d3fe18616e2e458feb9affe336cd8, type: 3}
+      color: 2
+    - sprite: {fileID: 21300000, guid: a1e70a682ad23f5499816d1aeb650cc7, type: 3}
+      color: 0
   spriteRenderer: {fileID: 964154189893531904}
   obstacleColor: {fileID: 4233606475579216550}

@@ -10,7 +10,9 @@ namespace ColorSwitch.Scripts
         [SerializeField] private InputHandler inputHandler;
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private SpriteRenderer bodyRenderer;
-        [SerializeField] private ColorsStorage colorsStorage;
+       // [SerializeField] private ColorsStorage colorsStorage;
+        
+        [SerializeField] private SpriteCollectionByColor spriteCollectionByColor;
 
         public Game Game { get; set; }
 
@@ -18,7 +20,7 @@ namespace ColorSwitch.Scripts
         public ColorInGame CurrentColor { get; private set; }
         private void Awake()
         {
-            SetColor(ColorInGame.Cyan);
+            SetColor(ColorInGame.Blue);
             inputHandler.OnTap = OnTap;
         }
 
@@ -30,7 +32,7 @@ namespace ColorSwitch.Scripts
         public void SetColor(ColorInGame color)
         {
             CurrentColor = color;
-            bodyRenderer.color = colorsStorage.GetColor(color);
+            bodyRenderer.sprite = spriteCollectionByColor.GetSpriteByColor(color);
         }
 
         private void OnTriggerEnter2D(Collider2D other)

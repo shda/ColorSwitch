@@ -2,9 +2,9 @@ namespace ColorSwitch.Scripts
 {
     public enum ColorInGame
     {
-        Cyan,
+        Violet,
         Yellow,
-        Magenta,
+        Blue,
         Pink
     }
 }

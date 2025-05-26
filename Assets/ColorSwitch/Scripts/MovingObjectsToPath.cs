@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TriInspector;
+using UnityEditor;
 using UnityEngine;
 
 namespace ColorSwitch.Scripts
@@ -66,13 +68,19 @@ namespace ColorSwitch.Scripts
             return (countItems / colorCount) * colorCount;
         }
 
-        private void CreateMovingObjectsIfNeeded()
+        [Button]
+        private void UpdateModel()
+        {
+            CreateMovingObjectsIfNeeded(true);
+        }
+
+        private void CreateMovingObjectsIfNeeded(bool force = false)
         {
             var colorValues = Enum.GetValues(typeof(ColorInGame));
             int colorCount = colorValues.Length;
             int totalObjects = CountItems();
 
-            if (movingObjectPrefab && movingObjects.Length != totalObjects || _currentOffset != startOffset)
+            if (movingObjectPrefab && movingObjects.Length != totalObjects || !Mathf.Approximately(_currentOffset, startOffset) || force)
             {
                 _currentOffset = startOffset;
                 
@@ -89,16 +97,18 @@ namespace ColorSwitch.Scripts
                 var newMovingObjects = new List<MovingObject>();
                 for (int i = 0; i < totalObjects; i++)
                 {
-                    var movingObject = Instantiate(movingObjectPrefab);
-                    movingObject.transform.SetParent(rootMovingObjects);
+                    MovingObject childInstance = (MovingObject)PrefabUtility.InstantiatePrefab(movingObjectPrefab, rootMovingObjects);
+                    
+                    //var movingObject = Instantiate(movingObjectPrefab);
+                    //movingObject.transform.SetParent(rootMovingObjects);
 
                     int colorIndex = (i == 0) ? 0 : i / objectsPerColor;
-                    movingObject.SetColor((ColorInGame)colorValues.GetValue(colorIndex));
+                    childInstance.SetColor((ColorInGame)colorValues.GetValue(colorIndex));
 
                     var position = path.GetPointOnPath(i * positionStep + startOffset);
-                    movingObject.transform.position = position;
+                    childInstance.transform.position = position;
 
-                    newMovingObjects.Add(movingObject);
+                    newMovingObjects.Add(childInstance);
                 }
 
                 movingObjects = newMovingObjects.ToArray();
