@@ -1,18 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BlockBlast.Scripts.Common.Extensions;
 using TriInspector;
-using UnityEditor;
 using UnityEngine;
 
 namespace ColorSwitch.Scripts
 {
-    public abstract class PathToLine : MonoBehaviour
-    {
-        public abstract Vector3 GetPointToPath(float value);
-        public abstract void RefreshPath();
-    }
-    
     [ExecuteInEditMode]
     public class MovingObjectsToPath : MonoBehaviour
     {
@@ -21,16 +15,21 @@ namespace ColorSwitch.Scripts
         [SerializeField] private float movingSpeed = 0.2f;
         [SerializeField] private float startOffset;
         
-        [SerializeField] private Path path;
+        [SerializeField] private PathAbstract path;
         [SerializeField] private Transform rootMovingObjects;
         [SerializeField] private MovingObject movingObjectPrefab;
         [SerializeField] private MovingObject[] movingObjects;
 
 
-        private float _currentOffset;
+       // private float _currentOffset;
         private float _currentStep;
 
-        private float _oldRang;
+       // private float _oldRang;
+
+        private void Awake()
+        {
+            path.RefreshPath();
+        }
 
         private void Update()
         {
@@ -42,7 +41,7 @@ namespace ColorSwitch.Scripts
 
             _currentStep += Time.deltaTime * movingSpeed;
 
-            CreateMovingObjectsIfNeeded();
+           // CreateMovingObjectsIfNeeded();
 
             if (Application.isPlaying)
             {
@@ -76,13 +75,17 @@ namespace ColorSwitch.Scripts
 
         private void CreateMovingObjectsIfNeeded(bool force = false)
         {
-            var colorValues = Enum.GetValues(typeof(ColorInGame));
+            var colorValues = Enum.GetValues(typeof(ColorInGame)).Cast<ColorInGame>().ToArray();
+            colorValues.Shuffle();
+            
             int colorCount = colorValues.Length;
             int totalObjects = CountItems();
 
-            if (movingObjectPrefab && movingObjects.Length != totalObjects || !Mathf.Approximately(_currentOffset, startOffset) || force)
+           // if (movingObjectPrefab && movingObjects.Length != totalObjects || !Mathf.Approximately(_currentOffset, startOffset) || force)
             {
-                _currentOffset = startOffset;
+                path.RefreshPath();
+                
+               // _currentOffset = startOffset;
                 
                 var children = rootMovingObjects.Cast<Transform>().ToArray();
 
@@ -97,18 +100,19 @@ namespace ColorSwitch.Scripts
                 var newMovingObjects = new List<MovingObject>();
                 for (int i = 0; i < totalObjects; i++)
                 {
-                    MovingObject childInstance = (MovingObject)PrefabUtility.InstantiatePrefab(movingObjectPrefab, rootMovingObjects);
+                    //MovingObject movingObject = (MovingObject)PrefabUtility.InstantiatePrefab(movingObjectPrefab, rootMovingObjects);
                     
-                    //var movingObject = Instantiate(movingObjectPrefab);
-                    //movingObject.transform.SetParent(rootMovingObjects);
+                    var movingObject = Instantiate(movingObjectPrefab);
+                    movingObject.transform.SetParent(rootMovingObjects);
 
                     int colorIndex = (i == 0) ? 0 : i / objectsPerColor;
-                    childInstance.SetColor((ColorInGame)colorValues.GetValue(colorIndex));
+                    movingObject.SetColor((ColorInGame)colorValues.GetValue(colorIndex));
 
                     var position = path.GetPointOnPath(i * positionStep + startOffset);
-                    childInstance.transform.position = position;
+                    Debug.Log(position);
+                    movingObject.transform.position = position;
 
-                    newMovingObjects.Add(childInstance);
+                    newMovingObjects.Add(movingObject);
                 }
 
                 movingObjects = newMovingObjects.ToArray();

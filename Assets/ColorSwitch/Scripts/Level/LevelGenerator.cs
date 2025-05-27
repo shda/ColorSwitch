@@ -54,10 +54,10 @@ namespace ColorSwitch.Scripts.Level
                     star.transform.position = model.PointSetStar;
                 }
 
-                if (_currentShape % changeColorAllShapes == 0)
+                var colorOptions = model.GetComponent<OnlyColorSwitchOptions>();
+                if (_currentShape % changeColorAllShapes == 0 || colorOptions)
                 {
-                    var changeColor = changeColorShapePool.Get();
-                    changeColor.transform.position = model.LowerLimitPoint;
+                    CreateColorChangeShape(model);
                 }
             }
             
@@ -72,10 +72,16 @@ namespace ColorSwitch.Scripts.Level
             }
         }
 
+        private void CreateColorChangeShape(BaseShape model)
+        {
+            var changeColor = changeColorShapePool.Get();
+            changeColor.transform.position = model.LowerLimitPoint;
+        }
+
         private BaseShape CreateShape(Vector3 minPosition)
         {
             var easyProp = 0;
-            var mediumProp = 0;
+            var mediumProp = 100;
             var hardProp = 0;
 
             GetProbabilityByScore(ref easyProp, ref mediumProp, ref hardProp);

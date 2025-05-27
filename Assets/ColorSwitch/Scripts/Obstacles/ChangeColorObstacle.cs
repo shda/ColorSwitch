@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,31 +8,46 @@ namespace ColorSwitch.Scripts.Obstacles
     public class ChangeColorObstacle : CrossedTrigger
     {
         [SerializeField] private bool once = true;
-        [SerializeField] private bool setRandomColor = true;
         [SerializeField] private ColorInGame setColor;
 
-        private bool _isChanged;
-        public override void OnPlayerTriggerEnter(Player player , Game game)
+        private bool _hasColorChanged;
+
+        public override void OnPlayerTriggerEnter(Player player, Game game)
         {
-            if(_isChanged && once)
+            if (_hasColorChanged && once)
                 return;
-            
-            _isChanged = true;
-            
-            var color = setColor;
-            if (setRandomColor)
+
+            _hasColorChanged = true;
+
+            var colorOptions = BaseShape?.GetComponent<OnlyColorSwitchOptions>();
+
+            if (colorOptions)
             {
-                var values = Enum.GetValues(typeof(ColorInGame));
-                
-                do 
+                if (colorOptions.Colors.Length > 1)
                 {
-                    color = (ColorInGame)values.GetValue(Random.Range(0, values.Length));
+                    SetRandomColor(player, colorOptions.Colors);
                 }
-                while(color == player.CurrentColor);
-                player.SetColor(color);
+                else if (colorOptions.Colors.Length == 1)
+                {
+                    player.SetColor(colorOptions.Colors[0]);
+                }
             }
-   
-            player.SetColor(color);
+            else
+            {
+                var allColors = Enum.GetValues(typeof(ColorInGame)).Cast<ColorInGame>().ToArray();
+                SetRandomColor(player, allColors);
+            }
+        }
+
+        private void SetRandomColor(Player player, ColorInGame[] availableColors)
+        {
+            ColorInGame newColor;
+            do
+            {
+                newColor = (ColorInGame)availableColors.GetValue(Random.Range(0, availableColors.Length));
+            } while (newColor == player.CurrentColor);
+
+            player.SetColor(newColor);
         }
     }
 }

@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace ColorSwitch.Scripts
 {
-    public class Path : MonoBehaviour
+    public class Path : PathAbstract
     {
         [SerializeField] private bool loop = true;
         [SerializeField] private List<Transform> waypoints;
-        
+
         public List<Transform> Waypoints => waypoints;
-        
+
         private float[] _segmentLengths;
         private float _totalPathLength;
-        
-        public float CalculatePathLength()
+
+        public override void RefreshPath()
         {
             // Рассчитываем длины всех сегментов
             _segmentLengths = new float[waypoints.Count];
@@ -25,15 +25,13 @@ namespace ColorSwitch.Scripts
                 _segmentLengths[i] = Vector3.Distance(waypoints[i].position, waypoints[nextIndex].position);
                 _totalPathLength += _segmentLengths[i];
             }
-
-            return _totalPathLength;
         }
-        
-        public Vector3 GetPointOnPath(float t)
+
+        public override Vector3 GetPointOnPath(float t)
         {
             if (_segmentLengths == null)
-                CalculatePathLength();
-            
+                RefreshPath();
+
             if (waypoints.Count < 2)
                 return transform.position;
 
@@ -54,28 +52,28 @@ namespace ColorSwitch.Scripts
                     int nextIndex = (i + 1) % waypoints.Count;
                     return Vector3.Lerp(waypoints[i].position, waypoints[nextIndex].position, segmentProgress);
                 }
+
                 accumulatedLength += _segmentLengths[i];
             }
 
             return waypoints[0].position; // fallback
         }
-
-        // Дополнительный метод для получения направления (касательной к пути)
+        
         public Vector3 GetDirectionOnPath(float t)
         {
             if (_segmentLengths == null)
-                CalculatePathLength();
-            
+                RefreshPath();
+
             if (waypoints.Count < 2)
                 return Vector3.forward;
 
             float delta = 0.01f;
             Vector3 point1 = GetPointOnPath(t - delta);
             Vector3 point2 = GetPointOnPath(t + delta);
-        
+
             return (point2 - point1).normalized;
         }
-        
+
         private void OnDrawGizmos()
         {
             if (waypoints == null || waypoints.Count < 2) return;
@@ -97,5 +95,6 @@ namespace ColorSwitch.Scripts
                 }
             }
         }
+        
     }
 }

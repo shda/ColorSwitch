@@ -6,12 +6,7 @@ namespace ColorSwitch.Scripts
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private float jumpForce = 10f;
-        [SerializeField] private InputHandler inputHandler;
-        [SerializeField] private Rigidbody2D body;
         [SerializeField] private SpriteRenderer bodyRenderer;
-       // [SerializeField] private ColorsStorage colorsStorage;
-        
         [SerializeField] private SpriteCollectionByColor spriteCollectionByColor;
 
         public Game Game { get; set; }
@@ -21,14 +16,9 @@ namespace ColorSwitch.Scripts
         private void Awake()
         {
             SetColor(ColorInGame.Blue);
-            inputHandler.OnTap = OnTap;
+            
         }
-
-        private void OnTap()
-        {
-            body.linearVelocity = Vector2.up * jumpForce;
-        }
-
+        
         public void SetColor(ColorInGame color)
         {
             CurrentColor = color;

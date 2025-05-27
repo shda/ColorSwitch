@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: Hard
   m_EditorClassIdentifier: 
   shapes:
+  - {fileID: 8598207681580367773, guid: f6ab70c9e20c55c4a8ffefdb2731a27d, type: 3}
+  - {fileID: 3133030875455815175, guid: 3e3ea128b96600640b11a2032abb1d2e, type: 3}
   - {fileID: 5236170371644235574, guid: 524f2365820486546b5a01379d7145b1, type: 3}
+  - {fileID: 5526166799562216000, guid: 08fc3d64501290f4fb41dd8a4f41d12f, type: 3}
+  - {fileID: 2035708878023656019, guid: 3c11666a9b949f44ea5c540ded196f40, type: 3}
