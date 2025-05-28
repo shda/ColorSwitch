@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BlockBlast.Scripts.Common.Extensions;
+using Cysharp.Threading.Tasks;
 using TriInspector;
 using UnityEngine;
 
@@ -14,20 +14,31 @@ namespace ColorSwitch.Scripts
         [SerializeField] private int countItems = 10;
         [SerializeField] private float movingSpeed = 0.2f;
         [SerializeField] private float startOffset;
-        
+        [SerializeField] private bool isInfinityOffest = false;
+
+        [SerializeField] private float max = 0.9f;
+
         [SerializeField] private PathAbstract path;
         [SerializeField] private Transform rootMovingObjects;
         [SerializeField] private MovingObject movingObjectPrefab;
         [SerializeField] private MovingObject[] movingObjects;
-
-
-       // private float _currentOffset;
+        
         private float _currentStep;
-
-       // private float _oldRang;
-
+        
         private void Awake()
         {
+            
+        }
+
+        private void OnEnable()
+        {
+            Delay();
+        }
+
+
+        private async void Delay()
+        {
+            await UniTask.Delay(100);
             path.RefreshPath();
         }
 
@@ -40,9 +51,6 @@ namespace ColorSwitch.Scripts
                 return;
 
             _currentStep += Time.deltaTime * movingSpeed;
-
-           // CreateMovingObjectsIfNeeded();
-
             if (Application.isPlaying)
             {
                 MovingObjects();
@@ -75,48 +83,74 @@ namespace ColorSwitch.Scripts
 
         private void CreateMovingObjectsIfNeeded(bool force = false)
         {
-            var colorValues = Enum.GetValues(typeof(ColorInGame)).Cast<ColorInGame>().ToArray();
-            colorValues.Shuffle();
+            var totalObjects = CountItems();
+            var colorValues = CreateItems(totalObjects);
             
-            int colorCount = colorValues.Length;
-            int totalObjects = CountItems();
+            path.RefreshPath();
+            
+            var children = rootMovingObjects.Cast<Transform>().ToArray();
 
-           // if (movingObjectPrefab && movingObjects.Length != totalObjects || !Mathf.Approximately(_currentOffset, startOffset) || force)
+            foreach (var child in children)
             {
-                path.RefreshPath();
-                
-               // _currentOffset = startOffset;
-                
-                var children = rootMovingObjects.Cast<Transform>().ToArray();
-
-                foreach (var child in children)
-                {
-                    DestroyImmediate(child.gameObject);
-                }
-
-                float positionStep = 1.0f / totalObjects;
-                int objectsPerColor = totalObjects / colorCount;
-
-                var newMovingObjects = new List<MovingObject>();
-                for (int i = 0; i < totalObjects; i++)
-                {
-                    //MovingObject movingObject = (MovingObject)PrefabUtility.InstantiatePrefab(movingObjectPrefab, rootMovingObjects);
-                    
-                    var movingObject = Instantiate(movingObjectPrefab);
-                    movingObject.transform.SetParent(rootMovingObjects);
-
-                    int colorIndex = (i == 0) ? 0 : i / objectsPerColor;
-                    movingObject.SetColor((ColorInGame)colorValues.GetValue(colorIndex));
-
-                    var position = path.GetPointOnPath(i * positionStep + startOffset);
-                    Debug.Log(position);
-                    movingObject.transform.position = position;
-
-                    newMovingObjects.Add(movingObject);
-                }
-
-                movingObjects = newMovingObjects.ToArray();
+                DestroyImmediate(child.gameObject);
             }
+
+            float positionStep = 1.0f / totalObjects;
+
+            var newMovingObjects = new List<MovingObject>();
+            for (int i = 0; i < totalObjects; i++)
+            {
+                var movingObject = Instantiate(movingObjectPrefab);
+                movingObject.transform.SetParent(rootMovingObjects);
+                
+                movingObject.SetColor(colorValues[i]);
+
+                var position = path.GetPointOnPath(i * positionStep + startOffset);
+                Debug.Log(position);
+                movingObject.transform.position = position;
+
+                newMovingObjects.Add(movingObject);
+            }
+
+            movingObjects = newMovingObjects.ToArray();
+        }
+
+        private ColorInGame[] CreateItems(int totalObjects)
+        {
+            var colorValues = Enum.GetValues(typeof(ColorInGame)).Cast<ColorInGame>().ToArray();
+            var colorCount = colorValues.Length;
+
+            var colors = new List<ColorInGame>();
+            var objectsPerColor = totalObjects / colorCount;
+
+            if (isInfinityOffest)
+            {
+                var cou = objectsPerColor / 2;
+                int currentIndex = 0;
+                for (var i = 0; i < totalObjects; i++)
+                {
+                    //int colorIndex = currentIndex % cou;
+                    var color = (ColorInGame)colorValues.GetValue(currentIndex);
+                    colors.Add(color);
+                    if (i > 0 && i % cou == 0)
+                    {
+                        currentIndex++;
+
+                        if (currentIndex >= colorValues.Length)
+                            currentIndex = 0;
+                    }
+                }
+            }
+            else
+            {
+                for (var i = 0; i < totalObjects; i++)
+                {
+                    int colorIndex = (i == 0) ? 0 : i / objectsPerColor;
+                    colors.Add((ColorInGame)colorValues.GetValue(colorIndex));
+                }
+            }
+            
+            return colors.ToArray();
         }
     }
 }

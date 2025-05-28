@@ -12,12 +12,15 @@ namespace ColorSwitch.Scripts
         
         public override Vector3 GetPointOnPath(float value)
         {
+            if(_pointCache == null)
+                return Vector3.zero;
+            
             return _pointCache.GetPoint(value);
         }
         public override void RefreshPath()
         {
             bezierSpline.Refresh();
-            _pointCache = bezierSpline.GeneratePointCache(resolution: pathCounts);
+            _pointCache = bezierSpline.GeneratePointCache(PointCacheFlags.Positions , resolution: pathCounts);
         }
     }
 }

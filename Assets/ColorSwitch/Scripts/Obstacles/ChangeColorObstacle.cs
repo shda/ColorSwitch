@@ -8,8 +8,8 @@ namespace ColorSwitch.Scripts.Obstacles
     public class ChangeColorObstacle : CrossedTrigger
     {
         [SerializeField] private bool once = true;
-        [SerializeField] private ColorInGame setColor;
 
+        private ColorInGame[] _colorOptions;
         private bool _hasColorChanged;
 
         public override void OnPlayerTriggerEnter(Player player, Game game)
@@ -18,18 +18,15 @@ namespace ColorSwitch.Scripts.Obstacles
                 return;
 
             _hasColorChanged = true;
-
-            var colorOptions = BaseShape?.GetComponent<OnlyColorSwitchOptions>();
-
-            if (colorOptions)
+            if (_colorOptions != null)
             {
-                if (colorOptions.Colors.Length > 1)
+                if (_colorOptions.Length > 1)
                 {
-                    SetRandomColor(player, colorOptions.Colors);
+                    SetRandomColor(player, _colorOptions);
                 }
-                else if (colorOptions.Colors.Length == 1)
+                else if (_colorOptions.Length == 1)
                 {
-                    player.SetColor(colorOptions.Colors[0]);
+                    player.SetColor(_colorOptions[0]);
                 }
             }
             else
@@ -48,6 +45,11 @@ namespace ColorSwitch.Scripts.Obstacles
             } while (newColor == player.CurrentColor);
 
             player.SetColor(newColor);
+        }
+
+        public void SetColorOptions(OnlyColorSwitchOptions colorOptions)
+        {
+            _colorOptions = colorOptions?.Colors;
         }
     }
 }

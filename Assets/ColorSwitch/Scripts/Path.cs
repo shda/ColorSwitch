@@ -59,21 +59,6 @@ namespace ColorSwitch.Scripts
             return waypoints[0].position; // fallback
         }
         
-        public Vector3 GetDirectionOnPath(float t)
-        {
-            if (_segmentLengths == null)
-                RefreshPath();
-
-            if (waypoints.Count < 2)
-                return Vector3.forward;
-
-            float delta = 0.01f;
-            Vector3 point1 = GetPointOnPath(t - delta);
-            Vector3 point2 = GetPointOnPath(t + delta);
-
-            return (point2 - point1).normalized;
-        }
-
         private void OnDrawGizmos()
         {
             if (waypoints == null || waypoints.Count < 2) return;

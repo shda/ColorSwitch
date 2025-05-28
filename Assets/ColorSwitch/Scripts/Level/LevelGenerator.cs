@@ -57,7 +57,7 @@ namespace ColorSwitch.Scripts.Level
                 var colorOptions = model.GetComponent<OnlyColorSwitchOptions>();
                 if (_currentShape % changeColorAllShapes == 0 || colorOptions)
                 {
-                    CreateColorChangeShape(model);
+                    CreateColorChangeShape(model , colorOptions);
                 }
             }
             
@@ -72,21 +72,20 @@ namespace ColorSwitch.Scripts.Level
             }
         }
 
-        private void CreateColorChangeShape(BaseShape model)
+        private void CreateColorChangeShape(BaseShape model, OnlyColorSwitchOptions colorOptions)
         {
             var changeColor = changeColorShapePool.Get();
+            changeColor.SetColorOptions(colorOptions);
             changeColor.transform.position = model.LowerLimitPoint;
         }
 
         private BaseShape CreateShape(Vector3 minPosition)
         {
             var easyProp = 0;
-            var mediumProp = 100;
-            var hardProp = 0;
+            var mediumProp = 0;
+            var hardProp = 100;
 
             GetProbabilityByScore(ref easyProp, ref mediumProp, ref hardProp);
-            
-            var pointEnd = startPointGenerator;
             BaseShape model = null;
             
             var random = Random.Range(0, 100);
@@ -118,22 +117,22 @@ namespace ColorSwitch.Scripts.Level
             var score = scoreModel.Score.Value;
             switch (score)
             {
-                case <= 5:
+                case <= 3:
                     easyProp = 75;
                     mediumProp = 25;
                     hardProp = 0;
                     break;
-                case <= 10:
+                case <= 6:
                     easyProp = 50;
                     mediumProp = 25;
                     hardProp = 25;
                     break;
-                case <= 15:
+                case <= 9:
                     easyProp = 25;
                     mediumProp = 50;
                     hardProp = 25;
                     break;
-                case <= 20:
+                case <= 12:
                     easyProp = 0;
                     mediumProp = 50;
                     hardProp = 50;
